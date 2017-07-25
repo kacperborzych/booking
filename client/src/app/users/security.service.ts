@@ -32,13 +32,13 @@ export class SecurityService {
     this.authenticationEvents.next(false)
   }
 
+  private removeAuthorizationHeader() {
+    this.requestOptions.headers.delete('Authorization')
+  }
+
   private onLoginSuccess(token: string) {
     this.setAuthorizationToken(token)
     this.authenticationEvents.next(true)
-  }
-
-  private removeAuthorizationHeader() {
-    this.requestOptions.headers.delete('Authorization')
   }
 
   private setAuthorizationToken(token: string) {
