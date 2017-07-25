@@ -9,7 +9,7 @@ export class SecurityGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.securityService.isAuthenticated()) {
+    if (this.securityService.getUser() != null) {
       return true
     } else {
       this.router.navigateByUrl('login')
