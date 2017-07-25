@@ -11,10 +11,19 @@ export class SecurityService {
 
   events: Observable<boolean>
 
+  private tokenKey = 'token'
   private authenticationEvents = new BehaviorSubject<boolean>(false)
 
   constructor(private http: Http, private requestOptions: RequestOptions, private api: Api) {
     this.events = this.authenticationEvents.asObservable()
+    this.restoreToken()
+  }
+
+  private restoreToken() {
+    let token = sessionStorage.getItem(this.tokenKey)
+    if (token) {
+      this.onLoginSuccess(token)
+    }
   }
 
   isAuthenticated(): boolean {
@@ -30,13 +39,23 @@ export class SecurityService {
   }
 
   logout() {
-    this.requestOptions.headers.delete('Authorization')
+    this.removeAuthorizationToken()
     this.authenticationEvents.next(false)
   }
 
+  private removeAuthorizationToken() {
+    sessionStorage.removeItem(this.tokenKey)
+    this.requestOptions.headers.delete('Authorization')
+  }
+
   private onLoginSuccess(token: string) {
-    this.requestOptions.headers.set('Authorization', `Bearer ${token}`)
+    this.setAuthorizationToken(token)
     this.authenticationEvents.next(true)
+  }
+
+  private setAuthorizationToken(token: string) {
+    sessionStorage.setItem(this.tokenKey, token)
+    this.requestOptions.headers.set('Authorization', `Bearer ${token}`)
   }
 
   private preparePayload(username: string, password: string): URLSearchParams {
