@@ -5,8 +5,8 @@ import { SecurityModule } from './security/security.module';
 import { UsersModule } from './users/users.module';
 import { Api } from './api';
 import { SecurityGuard } from './security/security.guard';
+import { SecurityService } from './security/security.service';
 import { routerModule } from './app.routing';
-import {SecurityService} from "./security/security.service";
 
 @NgModule({
   declarations: [
