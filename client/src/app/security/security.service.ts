@@ -30,21 +30,13 @@ export class SecurityService {
   }
 
   logout() {
-    this.removeAuthorizationHeader()
+    this.requestOptions.headers.delete('Authorization')
     this.authenticationEvents.next(false)
   }
 
-  private removeAuthorizationHeader() {
-    this.requestOptions.headers.delete('Authorization')
-  }
-
   private onLoginSuccess(token: string) {
-    this.setAuthorizationToken(token)
-    this.authenticationEvents.next(true)
-  }
-
-  private setAuthorizationToken(token: string) {
     this.requestOptions.headers.set('Authorization', `Bearer ${token}`)
+    this.authenticationEvents.next(true)
   }
 
   private preparePayload(username: string, password: string): URLSearchParams {
