@@ -1,11 +1,11 @@
-import { Route, RouterModule} from '@angular/router';
-import { LoginFormComponent } from './security/login-form/login-form.component'
-import { SecurityGuard } from './security/security.guard';
-import { UsersListComponent } from './users/users-list/users-list.component';
+import {Route, RouterModule} from '@angular/router';
+import {LoginFormComponent} from './security/login-form/login-form.component'
+import {SecurityGuard} from './security/security.guard';
+import {UsersListComponent} from './users/users-list/users-list.component';
 
 const routesConfig: [Route] = [
   {
-    path: 'users',  component: UsersListComponent, canActivate: [SecurityGuard]
+    path: 'users', component: UsersListComponent, canActivate: [SecurityGuard]
   }
 ]
 
