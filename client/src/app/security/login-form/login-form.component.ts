@@ -18,9 +18,12 @@ export class LoginFormComponent {
   }
 
   login() {
+    console.log(this.securityService.isAuthenticated())
     this.pendingRequest = true
     this.securityService.login(this.username, this.password)
-      .subscribe(() => this.router.navigateByUrl("/"), () => {
+      .subscribe(() => {
+        this.router.navigateByUrl("/")
+      }, () => {
         this.loginError = true
         this.pendingRequest = false
       })

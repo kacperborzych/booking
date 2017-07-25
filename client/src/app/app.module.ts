@@ -4,8 +4,9 @@ import { AppComponent } from './app.component';
 import { SecurityModule } from './security/security.module';
 import { UsersModule } from './users/users.module';
 import { Api } from './api';
-import {SecurityService} from "./security/security.service";
+import { SecurityGuard } from './security/security.guard';
 import { routerModule } from './app.routing';
+import {SecurityService} from "./security/security.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { routerModule } from './app.routing';
   ],
   providers: [
     Api,
-    SecurityService
+    SecurityService,
+    SecurityGuard
   ],
   bootstrap: [AppComponent]
 })

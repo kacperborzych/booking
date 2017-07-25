@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams } from '@angular/http';
-import { Subject} from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Api } from '../api';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -11,10 +11,14 @@ export class SecurityService {
 
   events: Observable<boolean>
 
-  private authenticationEvents = new Subject<boolean>()
+  private authenticationEvents = new BehaviorSubject<boolean>(false)
 
   constructor(private http: Http, private requestOptions: RequestOptions, private api: Api) {
     this.events = this.authenticationEvents.asObservable()
+  }
+
+  isAuthenticated(): boolean {
+    return this.authenticationEvents.getValue()
   }
 
   login(username: string, password: string): Observable<string> {
