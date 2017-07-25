@@ -5,6 +5,7 @@ import { SecurityModule } from './security/security.module';
 import { UsersModule } from './users/users.module';
 import { Api } from './api';
 import {SecurityService} from "./security/security.service";
+import { routerModule } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {SecurityService} from "./security/security.service";
   imports: [
     BrowserModule,
     SecurityModule,
-    UsersModule
+    UsersModule,
+    routerModule
   ],
   providers: [
     Api,
