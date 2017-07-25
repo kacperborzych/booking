@@ -13,8 +13,10 @@ export class SecurityService {
 
   user: Observable<User>
 
+  private authorizationHeader = 'Authorization'
   private userKey = 'user'
   private tokenKey = 'token'
+  private tokenType = 'bearer'
   private userSubject = new BehaviorSubject<User>(null)
 
   constructor(private http: Http, private requestOptions: RequestOptions, private api: Api) {
@@ -62,7 +64,7 @@ export class SecurityService {
 
   private setToken(token: string) {
     sessionStorage.setItem(this.tokenKey, token)
-    this.requestOptions.headers.set('Authorization', `Bearer ${token}`)
+    this.requestOptions.headers.set(this.authorizationHeader, `${this.tokenType} ${token}`)
   }
 
   private retrieveUser(): Observable<User> {
@@ -83,7 +85,7 @@ export class SecurityService {
 
   private removeToken() {
     sessionStorage.removeItem(this.tokenKey)
-    this.requestOptions.headers.delete('Authorization')
+    this.requestOptions.headers.delete(this.authorizationHeader)
   }
 
 }
