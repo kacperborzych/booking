@@ -12,9 +12,8 @@ export class HotelService {
 
   getAll(): Observable<any>{
     return this.http.get(this.api.hotels)
-     // .map(response=> response.json())
-      // .flatMap(hotels => hotels)
-      // .map(hotel => new Hotel(hotel))
-      //
+     .map(response=> response.json())
+      .do(hotel=> console.log(hotel))
+
   }
 }

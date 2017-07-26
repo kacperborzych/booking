@@ -9,3 +9,4 @@ insert into users_authorities values(2,2);
 
 
 INSERT INTO hotels (name, adress) VALUES ('Jeziorski', 'Wisła ul. Lazurowa 12');
+INSERT INTO hotels (name, adress) VALUES ('Gołębiewski', 'Mikołajki ul. Klasztorna 1');

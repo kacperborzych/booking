@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {HotelService} from "../hotel.service";
 import {EventEmitter} from "selenium-webdriver";
+import {Subject} from "rxjs/Subject";
 
 @Component({
   selector: 'app-list-hotel',
@@ -11,15 +12,28 @@ import {EventEmitter} from "selenium-webdriver";
   styleUrls: ['./list-hotel.component.css']
 })
 export class ListHotelComponent {
+  selected = {};
+  edited = null;
+  hotels = [];
 
+  private hotelSubject = new Subject();
 
-
-  hotels: Observable<[Hotel]>
-
-
-  constructor(private hotelService: HotelService) {
-    this.hotelService.getAll().subscribe(response=>console.log(response))
-   // console.log(activatedRoute.snapshot.data)
+  constructor(private hotelService: HotelService){
   }
 
+  ngOnInit(): void {
+    this.refresh();
+  }
+
+  select(hotel){
+    this.selected = hotel;
+    this.edited = Object.assign({}, hotel);
+    console.log(hotel)
+  }
+
+  private refresh() {
+    this.hotelService.getAll()
+      .subscribe(hotels => this.hotels = hotels.hotels)
+
+}
 }
