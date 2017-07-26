@@ -7,6 +7,8 @@ import {Api} from './api';
 import {SecurityGuard} from './security/security.guard';
 import {SecurityService} from './security/security.service';
 import {routerModule} from './app.routing';
+import {ListHotelComponent} from "./hotel/list-hotel/list-hotel.component";
+import {HotelModule} from "./hotel/hotel.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import {routerModule} from './app.routing';
     BrowserModule,
     SecurityModule,
     UsersModule,
-    routerModule
+    routerModule,
+    HotelModule
   ],
   providers: [
     Api,
