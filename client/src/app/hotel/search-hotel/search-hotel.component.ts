@@ -15,10 +15,10 @@ export class SearchHotelComponent implements OnInit {
   }
 
   hotel= {};
-  hotels: Observable<[Hotel]>
-  name = ''
+  hotels: Observable<[Hotel]>;
+  name = '';
 
-  find = new EventEmitter
+  find = new EventEmitter;
 
   ngOnInit(): void {
     this.searchHotels();
@@ -26,7 +26,7 @@ export class SearchHotelComponent implements OnInit {
 
 
   searchHotels() {
-    this.hotels = this.hotelService.getHotelByName(this.name + "%25")
+    this.hotels = this.hotelService.getHotelByName("%25" + this.name + "%25" )
       //.subscribe(response=> console.log(response))
       //.subscribe(hotels=> console.log(hotels))
   }
