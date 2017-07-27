@@ -3,6 +3,7 @@ package pl.training.backend.security.entity;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.training.backend.profiles.entity.UserProfile;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,7 +26,8 @@ public class User implements Serializable, UserDetails {
     private boolean active;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Authority> authorities = new HashSet<>();
-
+    @OneToOne(cascade = CascadeType.ALL)
+    private UserProfile userProfile;
     public void addAuthority(Authority authority) {
         if (authorities == null){
             authorities = new HashSet<>();

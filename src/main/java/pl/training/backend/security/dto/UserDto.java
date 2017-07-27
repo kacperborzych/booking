@@ -5,12 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import pl.training.backend.profiles.dto.UserProfileDto;
 
 import java.util.Set;
 
 @ApiModel(value = "User")
 @Data
 public class UserDto {
+    private UserProfileDto userProfileDto;
+
 
     @ApiModelProperty(required = true)
     private String login;

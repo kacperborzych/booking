@@ -11,10 +11,8 @@ import java.util.Date;
 @Data
 public class Reservation {
 
-    @ManyToMany
-    private Hotel hotel;
-    @ManyToMany
-    private User user;
+//    private Hotel hotel;
+//    private User user;
 
     @Id
     @GeneratedValue
@@ -25,9 +23,9 @@ public class Reservation {
     @Column(nullable = false)
     private Date endDate;
 
-    public Reservation(Hotel hotel, User user, Date startDate, Date endDate) {
-        this.hotel = hotel;
-        this.user = user;
+    public Reservation( Date startDate, Date endDate) {
+//        this.hotel = hotel;
+//        this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
     }
