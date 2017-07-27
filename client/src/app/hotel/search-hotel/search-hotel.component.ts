@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Hotel} from "../hotel";
 import {Observable} from "rxjs/Observable";
 import {HotelService} from "../hotel.service";
@@ -16,14 +16,17 @@ export class SearchHotelComponent implements OnInit {
 
   hotel= {};
   hotels: Observable<[Hotel]>
+  name = ''
+
+  find = new EventEmitter
 
   ngOnInit(): void {
     this.searchHotels();
   }
 
 
-  private searchHotels() {
-    this.hotels = this.hotelService.getHotelByName("%25i")
+  searchHotels() {
+    this.hotels = this.hotelService.getHotelByName(this.name + "%25")
       //.subscribe(response=> console.log(response))
       //.subscribe(hotels=> console.log(hotels))
   }

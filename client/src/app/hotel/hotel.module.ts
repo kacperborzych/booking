@@ -5,11 +5,13 @@ import { CardHotelComponent } from './card-hotel/card-hotel.component';
 import {HttpModule} from "@angular/http";
 import {HotelService} from "./hotel.service";
 import { SearchHotelComponent } from './search-hotel/search-hotel.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   declarations: [
     ListHotelComponent,
