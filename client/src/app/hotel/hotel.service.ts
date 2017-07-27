@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
 import {Api} from "../api";
-import {Http} from "@angular/http";
-import {Observable} from "rxjs/Rx";
 import {Hotel} from "./hotel";
 
+
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toArray'
 
 @Injectable()
 export class HotelService {
@@ -15,5 +19,13 @@ export class HotelService {
      .map(response=> response.json())
       .do(hotel=> console.log(hotel))
 
+  }
+
+  getHotelByName(name: string): Observable<[Hotel]> {
+    return this.http.get(this.api.search + "?name=" + name)
+      .map(responese => responese.json())
+      .flatMap(hotels => hotels)
+      .map(json => new Hotel(json))
+      .toArray()
   }
 }

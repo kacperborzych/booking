@@ -10,6 +10,8 @@ import pl.training.backend.hotel.model.Hotel;
 import pl.training.backend.hotel.service.repository.HotelRepository;
 import pl.training.backend.security.entity.User;
 
+import java.util.List;
+
 @Service
 public class HotelService {
 
@@ -21,13 +23,15 @@ public class HotelService {
     }
 
 
-    public Iterable<Hotel> findAllHotels(){
-        return hotelRepository.findAll();
-    }
 
     public ResultPage<Hotel> getHotels(int pageNumber, int pageSize) {
         Page<Hotel> hotelPage = hotelRepository.findAll(new PageRequest(pageNumber, pageSize));
         return new ResultPage<>(hotelPage.getContent(), hotelPage.getNumber(), hotelPage.getTotalPages());
+    }
+
+
+    public List<Hotel> findHotelByName(String name){
+        return hotelRepository.findByHotelNameLike(name);
     }
 
 }
