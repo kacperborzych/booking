@@ -8,10 +8,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CardHotelComponent {
 
+
+
   @Input()
-  hotel= {};
+  hotel = {}
+  @Input()
+  isSelected = false
+  @Output('selected')
+  onSelect = new EventEmitter()
 
+  get authorsStyle() {
+    return { color: 'gray', letterSpacing: '2px' }
+  }
 
+  select() {
+    this.onSelect.emit(this.hotel)
 
-
+  }
 }

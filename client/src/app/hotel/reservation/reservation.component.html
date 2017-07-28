@@ -1,0 +1,20 @@
+<form #reservationForm>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">Reservation</label>
+    <div class="col-md-4">
+      <span class="help-block">Select hotel</span>
+      <input class="input" type="name" name="name" [(ngModel)]="reservations.hotel" required>
+      <br>
+      <span class="help-block">Start date</span>
+      <input class="input" type="date" name="date" [(ngModel)]="reservations.startDate" required>
+      <br>
+      <span class="help-block">End date</span>
+      <input class="input" type="date" name="date" [(ngModel)]="reservations.endDate" required>
+
+
+        <button class="submit" (click)="addReservation()">Add</button>
+
+    </div>
+  </div>
+</form>

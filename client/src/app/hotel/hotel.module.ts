@@ -6,6 +6,7 @@ import {HttpModule} from "@angular/http";
 import {HotelService} from "./hotel.service";
 import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 import {FormsModule} from "@angular/forms";
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   imports: [
@@ -16,10 +17,12 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     ListHotelComponent,
     CardHotelComponent,
-    SearchHotelComponent],
+    SearchHotelComponent,
+    ReservationComponent],
   exports:[
     ListHotelComponent,
-    SearchHotelComponent
+    SearchHotelComponent,
+    ReservationComponent
   ],
   providers:[
     HotelService
