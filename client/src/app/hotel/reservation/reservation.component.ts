@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Reservation} from "../reservation";
 import {HotelService} from "../hotel.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-reservation',
@@ -13,7 +14,9 @@ export class ReservationComponent implements OnInit {
   reservation: Observable<[Reservation]>;
   reservations = new Reservation({});
 
-  constructor(private hotelService: HotelService) { }
+  constructor(private hotelService: HotelService, private activatedRoute: ActivatedRoute) {
+    activatedRoute.snapshot.paramMap.get("id")
+  }
 
   ngOnInit() {
   }
@@ -21,8 +24,6 @@ export class ReservationComponent implements OnInit {
   addReservation(){
     this.hotelService.addReservation(this.reservations)
       .subscribe(response=> {console.log(response)})
-
-
 
   }
 }

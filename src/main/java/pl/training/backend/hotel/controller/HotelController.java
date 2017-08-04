@@ -1,6 +1,7 @@
 package pl.training.backend.hotel.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import pl.training.backend.hotel.dto.HotelPageDto;
 import pl.training.backend.hotel.model.Hotel;
 import pl.training.backend.hotel.service.HotelService;
 
+import javax.transaction.Transactional;
 import java.net.URI;
 import java.util.List;
 
@@ -42,5 +44,11 @@ public class HotelController {
     public List<HotelDto> findHotelByName(@RequestParam ("name") String name){
        List<HotelDto> listDto = mapper.map( hotelService.findHotelByName(name), HotelDto.class);
        return listDto;
+    }
+
+    @RequestMapping(value= UriBuilder.PREFIX + "/{id}", method = RequestMethod.GET)
+    public HotelDto findHotelById(@PathVariable("id") Long id){
+        HotelDto hotelById = mapper.map(hotelService.getHotelInformacion(id), HotelDto.class);
+        return hotelById;
     }
 }

@@ -1,1 +1,36 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/home']"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a [routerLink]="['/home']">Book hotel</a></li>
+      <li><a [routerLink]="['/search']"><span class="glyphicon glyphicon-user"></span>Search hotel</a></li>
+      <li><a [routerLink]="['/reservation']"><span class="glyphicon glyphicon-tower"></span>Reservation</a></li>
+      <li><a [routerLink]="['/hotel-panel']"><span class="glyphicon glyphicon-tower"></span>Hotel Panel</a></li>
+      <li><a [routerLink]="['/hotel-list']"><span class="glyphicon glyphicon-tower"></span>Hotel List</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a [routerLink]="['/logout']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <p></p>
+
+  </div>
+</nav>
+</body>
 <router-outlet></router-outlet>

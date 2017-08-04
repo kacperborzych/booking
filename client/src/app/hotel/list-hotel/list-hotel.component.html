@@ -2,18 +2,19 @@
 <!--<app-card-hotel [hotel]="hotel" ></app-card-hotel>-->
 <!--</div>-->
 
+<app-card-hotel *ngFor="let hotel of hotels ">
+  <a [routerLink]="['/hotel-list/',hotel.id]"><span> Hotel {{hotel.hotelName }} {{ hotel.adress }}</span> </a>
+</app-card-hotel>
+<!--<router-outlet></router-outlet>-->
 
 
-<div class="row">
-  <div class="col-md-8">
-    <ul class="hotel-list">
-      <li *ngFor="let hotel of hotels ">
-        <a [routerLink]="[hotel.id]">{{ hotel.hotelName }} ({{ hotel.adress }})</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-md-4">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<!--<div class="row">-->
+  <!--<div class="col-md-8">-->
+    <!--<ul class="hotel-list">-->
+      <!--<li *ngFor="let hotel of hotels ">-->
+        <!--<a [routerLink]="['/hotel-list/',hotel.id]"><span> Hotel {{hotel.hotelName }} {{ hotel.adress }}</span> </a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+   <!--<router-outlet></router-outlet>-->
+<!--</div>-->

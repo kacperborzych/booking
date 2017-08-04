@@ -25,4 +25,5 @@ export class CardHotelComponent {
     this.onSelect.emit(this.hotel)
 
   }
+
 }

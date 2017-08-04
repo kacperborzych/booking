@@ -7,13 +7,13 @@ import {Api} from './api';
 import {SecurityGuard} from './security/security.guard';
 import {SecurityService} from './security/security.service';
 import {routerModule} from './app.routing';
-import {ListHotelComponent} from "./hotel/list-hotel/list-hotel.component";
 import {HotelModule} from "./hotel/hotel.module";
-import {CardHotelComponent} from "./hotel/card-hotel/card-hotel.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,

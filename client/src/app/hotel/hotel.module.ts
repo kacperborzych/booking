@@ -7,22 +7,28 @@ import {HotelService} from "./hotel.service";
 import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 import {FormsModule} from "@angular/forms";
 import { ReservationComponent } from './reservation/reservation.component';
+import {RouterModule} from "@angular/router";
+import { PanelHotelComponent } from './panel-hotel/panel-hotel.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   declarations: [
     ListHotelComponent,
     CardHotelComponent,
     SearchHotelComponent,
-    ReservationComponent],
+    ReservationComponent,
+    PanelHotelComponent],
   exports:[
     ListHotelComponent,
     SearchHotelComponent,
-    ReservationComponent
+    ReservationComponent,
+    CardHotelComponent,
+    PanelHotelComponent
   ],
   providers:[
     HotelService

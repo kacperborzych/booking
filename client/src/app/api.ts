@@ -5,5 +5,6 @@ export class Api {
   activeUser = `${this.baseUrl}/users/active`
   hotels = `${this.baseUrl}/hotels`
   search =`${this.baseUrl}/searchHotels`
+  reservation=`${this.baseUrl}/reservation`
 
 }

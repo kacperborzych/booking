@@ -7,8 +7,7 @@ import lombok.Data;
 @ApiModel(value = "Hotel")
 @Data
 public class HotelDto {
-    @ApiModelProperty(required = true)
+    private Long id;
     private String hotelName;
-    @ApiModelProperty(required = true)
     private String adress;
 }

@@ -2,6 +2,7 @@ package pl.training.backend.hotel.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.training.backend.hotel.model.Hotel;
 import pl.training.backend.hotel.model.Reservation;
 import pl.training.backend.hotel.service.repository.HotelRepository;
 import pl.training.backend.hotel.service.repository.ReservationRepository;
@@ -22,5 +23,7 @@ public class ReservationService {
     public void addReservations(Reservation reservation){
          reservationRepository.saveAndFlush(reservation);
     }
+
+
 }
 

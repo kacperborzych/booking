@@ -13,8 +13,11 @@ import pl.training.backend.hotel.service.ReservationService;
 import pl.training.backend.security.entity.User;
 
 import javax.xml.crypto.Data;
+import java.net.URI;
 import java.util.Date;
 import java.util.List;
+
+import static org.springframework.http.ResponseEntity.created;
 
 @RestController
 public class ReservationController {
@@ -34,10 +37,11 @@ public class ReservationController {
 //       return reservationDtoList;
 //    }
 
-    @RequestMapping(value = UriBuilder.PREFIX + "/reservation", method = RequestMethod.GET)
-        public Reservation addReservation(@RequestBody ReservationDto reservationDto){          //czy tutaj nie(Reservation reservation?)
+    @RequestMapping(value = UriBuilder.PREFIX + "/reservation", method = RequestMethod.POST)
+        public ResponseEntity addReservation(@RequestBody ReservationDto reservationDto){
             Reservation reservation = mapper.map(reservationDto, Reservation.class);
             reservationService.addReservations(reservation);
-            return reservation;
+        URI uri = uriBuilder.requestUriWithId(reservation.getIdReservation());
+        return created(uri).build();
         }
 }

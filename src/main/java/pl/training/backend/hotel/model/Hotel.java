@@ -1,6 +1,7 @@
 package pl.training.backend.hotel.model;
 import lombok.Data;
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "hotels")
 @Entity
@@ -14,6 +15,10 @@ public class Hotel {
     private String hotelName;
     @Column(nullable = false)
     private String adress;
+
+    @OneToMany
+    @JoinColumn
+    private List<Reservation> reservationList;
 
     public Hotel(String hotelName, String adress) {
         this.hotelName = hotelName;

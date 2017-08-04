@@ -11,8 +11,6 @@ import java.util.Date;
 @Data
 public class Reservation {
 
-//    private Hotel hotel;
-//    private User user;
 
     @Id
     @GeneratedValue
@@ -23,9 +21,8 @@ public class Reservation {
     @Column(nullable = false)
     private Date endDate;
 
-    public Reservation( Date startDate, Date endDate) {
-//        this.hotel = hotel;
-//        this.user = user;
+    public Reservation(Date startDate, Date endDate) {
+
         this.startDate = startDate;
         this.endDate = endDate;
     }

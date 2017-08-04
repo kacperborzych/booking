@@ -1,5 +1,6 @@
 package pl.training.backend.hotel.service;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
@@ -30,8 +31,12 @@ public class HotelService {
     }
 
 
+    
     public List<Hotel> findHotelByName(String name){
         return hotelRepository.findByHotelNameLike(name);
     }
 
+    public Hotel getHotelInformacion(Long id){
+      return hotelRepository.findById(id);
+    }
 }

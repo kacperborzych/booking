@@ -2,8 +2,10 @@ package pl.training.backend.profiles.entity;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
+import pl.training.backend.hotel.model.Reservation;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "profiles")
 @Component
@@ -20,6 +22,9 @@ public class UserProfile {
     private String surname;
     @Column
     private String description;
+    @OneToMany
+    @JoinColumn
+    private List<Reservation> reservationList;
 
     public UserProfile(String name, String surname, String description) {
         this.name = name;
