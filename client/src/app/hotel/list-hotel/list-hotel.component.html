@@ -1,10 +1,15 @@
-<!--<div *ngFor="let hotel of hotels">-->
-<!--<app-card-hotel [hotel]="hotel" ></app-card-hotel>-->
-<!--</div>-->
+<div *ngFor="let hotel of hotels">
+  <a [routerLink]="[hotel.id]"><app-card-hotel> </app-card-hotel>Hotel {{hotel.hotelName}}, {{hotel.adress}}</a>
 
-<app-card-hotel *ngFor="let hotel of hotels ">
-  <a [routerLink]="['/hotel-list/',hotel.id]"><span> Hotel {{hotel.hotelName }} {{ hotel.adress }}</span> </a>
-</app-card-hotel>
+
+<!--<app-card-hotel [hotel]="hotel" ></app-card-hotel>-->
+  <!--<span> Adress {{ hotel.adress }}</span>-->
+  <!--<router-outlet></router-outlet>-->
+</div>
+
+<!--<app-card-hotel *ngFor="let hotel of hotels ">-->
+  <!--<a [routerLink]="['/hotel-list/',hotel.id]"><span> Hotel {{hotel.hotelName }} {{ hotel.adress }}</span> </a>-->
+<!--</app-card-hotel>-->
 <!--<router-outlet></router-outlet>-->
 
 

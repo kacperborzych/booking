@@ -17,6 +17,8 @@ export class CardHotelComponent {
   @Output('selected')
   onSelect = new EventEmitter()
 
+
+
   get authorsStyle() {
     return { color: 'gray', letterSpacing: '2px' }
   }

@@ -4,6 +4,7 @@ import {Hotel} from "../hotel";
 import {HotelService} from "../hotel.service";
 import {Subject} from "rxjs/Subject";
 
+
 @Component({
   selector: 'app-panel-hotel',
   templateUrl: './panel-hotel.component.html',

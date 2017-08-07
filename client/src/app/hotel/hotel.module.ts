@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { ReservationComponent } from './reservation/reservation.component';
 import {RouterModule} from "@angular/router";
 import { PanelHotelComponent } from './panel-hotel/panel-hotel.component';
+import { AllHotelComponent } from './all-hotel/all-hotel.component';
 
 @NgModule({
   imports: [
@@ -22,13 +23,15 @@ import { PanelHotelComponent } from './panel-hotel/panel-hotel.component';
     CardHotelComponent,
     SearchHotelComponent,
     ReservationComponent,
-    PanelHotelComponent],
+    PanelHotelComponent,
+    AllHotelComponent],
   exports:[
     ListHotelComponent,
     SearchHotelComponent,
     ReservationComponent,
     CardHotelComponent,
-    PanelHotelComponent
+    PanelHotelComponent,
+    AllHotelComponent
   ],
   providers:[
     HotelService

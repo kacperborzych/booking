@@ -9,6 +9,7 @@ import {SecurityService} from './security/security.service';
 import {routerModule} from './app.routing';
 import {HotelModule} from "./hotel/hotel.module";
 import {RouterModule} from "@angular/router";
+import {HotelService} from "./hotel/hotel.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {RouterModule} from "@angular/router";
   providers: [
     Api,
     SecurityService,
-    SecurityGuard
+    SecurityGuard,
+    HotelService
   ],
   bootstrap: [AppComponent]
 })
