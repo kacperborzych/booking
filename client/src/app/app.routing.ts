@@ -31,7 +31,7 @@ const routesConfig: [Route] = [
     },
     {
       path: 'logout', component: LogoutFormComponent
-    }
+    },
 
 
   ]

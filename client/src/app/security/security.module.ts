@@ -11,7 +11,7 @@ import { LogoutFormComponent } from './logout-form/logout-form.component';
   ],
   declarations: [
     LoginFormComponent,
-    LogoutFormComponent
+    LogoutFormComponent,
   ],
   exports: [
     LoginFormComponent
