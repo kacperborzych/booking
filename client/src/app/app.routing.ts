@@ -6,7 +6,7 @@ import {ListHotelComponent} from "./hotel/list-hotel/list-hotel.component";
 import {SearchHotelComponent} from "./hotel/search-hotel/search-hotel.component";
 import {ReservationComponent} from "./hotel/reservation/reservation.component";
 import {PanelHotelComponent} from "./hotel/panel-hotel/panel-hotel.component";
-import {AllHotelComponent} from "./hotel/all-hotel/all-hotel.component";
+import {LogoutFormComponent} from "./security/logout-form/logout-form.component";
 
 const routesConfig: [Route] = [
   {
@@ -30,8 +30,9 @@ const routesConfig: [Route] = [
       path: 'hotel-panel', component: PanelHotelComponent
     },
     {
-      path: 'hotel-all', component: AllHotelComponent
+      path: 'logout', component: LogoutFormComponent
     }
+
 
   ]
   }

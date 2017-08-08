@@ -1,0 +1,4 @@
+<form #logoutForm="ngForm" novalidate="true" (ngSubmit)="logoutFormMethod()">
+
+  <button [disabled]="logoutFormMethod().invalid || pendingRequest">Logout</button>
+</form>

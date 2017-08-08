@@ -9,7 +9,6 @@ import {FormsModule} from "@angular/forms";
 import { ReservationComponent } from './reservation/reservation.component';
 import {RouterModule} from "@angular/router";
 import { PanelHotelComponent } from './panel-hotel/panel-hotel.component';
-import { AllHotelComponent } from './all-hotel/all-hotel.component';
 
 @NgModule({
   imports: [
@@ -24,14 +23,14 @@ import { AllHotelComponent } from './all-hotel/all-hotel.component';
     SearchHotelComponent,
     ReservationComponent,
     PanelHotelComponent,
-    AllHotelComponent],
+    ],
   exports:[
     ListHotelComponent,
     SearchHotelComponent,
     ReservationComponent,
     CardHotelComponent,
     PanelHotelComponent,
-    AllHotelComponent
+
   ],
   providers:[
     HotelService
